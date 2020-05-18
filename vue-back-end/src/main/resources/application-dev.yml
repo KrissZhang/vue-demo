@@ -9,7 +9,5 @@ server:
 # log
 logging:
   config: classpath:logging-config.xml
-  file:
-    path: /home/vue-back-end/logs
 
 
