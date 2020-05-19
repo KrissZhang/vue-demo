@@ -5,17 +5,22 @@ package com.self.vuebackend.enums;
  */
 public enum Gender {
     //男
-    GENDER_MALE,
+    GENDER_MALE(0, "男"),
 
     //女
-    GENDER_FEMALE;
+    GENDER_FEMALE(1, "女");
 
-    private Integer type;
+    Gender(Integer key, String msg){
+        this.key = key;
+        this.msg = msg;
+    }
+
+    private Integer key;
 
     private String msg;
 
-    public Integer getType() {
-        return type;
+    public Integer getKey() {
+        return key;
     }
 
     public String getMsg() {
