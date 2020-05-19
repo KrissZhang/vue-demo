@@ -1,0 +1,15 @@
+# server
+server:
+  port: 8080
+  servlet:
+    context-path: /vue
+  tomcat:
+    uri-encoding: UTF-8
+
+# log
+logging:
+  config: classpath:logging-config.xml
+  file:
+    path: /home/vue-back-end/logs
+
+
