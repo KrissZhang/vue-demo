@@ -25,9 +25,9 @@ public interface TestService {
     List<Test> getTestListByParamForPage(Map<String, Object> paramMap, Integer pageNum, Integer pageSize);
 
     /**
-     * 根据key获取测试
+     * 根据key获取测试实体
      * @param key 测试键
-     * @return 测试
+     * @return 测试实体
      */
     Test getTestByKey(String key);
 
@@ -35,28 +35,28 @@ public interface TestService {
      * 根据主键id更新测试值
      * @param id 主键id
      * @param value 测试值
-     * @return 更新数据条数
+     * @return 影响数据条数
      */
     boolean modifyTestValueById(Integer id, String value);
 
     /**
-     * 添加测试
-     * @param test 单条测试
-     * @return 添加数据条数
+     * 添加测试实体
+     * @param test 测试实体
+     * @return 影响数据条数
      */
     boolean addTest(Test test);
 
     /**
      * 批量添加测试列表
      * @param list 测试列表
-     * @return 添加数据条数
+     * @return 影响数据条数
      */
     void batchAddTestList(List<Test> list);
 
     /**
      * 删除测试
      * @param id 主键id
-     * @return 删除数据条数
+     * @return 影响数据条数
      */
     boolean removeTestById(Integer id);
 

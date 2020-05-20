@@ -29,11 +29,21 @@ public class TestServiceImpl implements TestService {
     @Autowired
     private TestRepository testRepository;
 
+    /**
+     * 获取测试全表数据
+     * @return 测试列表
+     */
     @Override
     public List<Test> getAllTestList() {
         return testRepository.findAll();
     }
 
+    /**
+     * 根据参数分页获取数据列表
+     * @param pageNum 页数
+     * @param pageSize 页面大小
+     * @return 分页数据列表
+     */
     @Override
     public List<Test> getTestListByParamForPage(Map<String, Object> paramMap, Integer pageNum, Integer pageSize) {
         StringBuilder builder = new StringBuilder();
@@ -63,11 +73,22 @@ public class TestServiceImpl implements TestService {
         return list;
     }
 
+    /**
+     * 根据key获取测试实体
+     * @param key 测试键
+     * @return 测试实体
+     */
     @Override
     public Test getTestByKey(String key) {
         return testRepository.findTestByKeyEquals(key);
     }
 
+    /**
+     * 根据主键id更新测试值
+     * @param id 主键id
+     * @param value 测试值
+     * @return 影响数据条数
+     */
     @Transactional(rollbackFor = Exception.class)
     @Override
     public boolean modifyTestValueById(Integer id, String value) {
@@ -75,6 +96,11 @@ public class TestServiceImpl implements TestService {
         return num > 0;
     }
 
+    /**
+     * 添加测试实体
+     * @param test 测试实体
+     * @return 影响数据条数
+     */
     @Transactional(rollbackFor = Exception.class)
     @Override
     public boolean addTest(Test test) {
@@ -82,6 +108,11 @@ public class TestServiceImpl implements TestService {
         return returnTest != null;
     }
 
+    /**
+     * 批量添加测试列表
+     * @param list 测试列表
+     * @return 影响数据条数
+     */
     @Override
     public void batchAddTestList(List<Test> list) {
         try{
@@ -98,6 +129,11 @@ public class TestServiceImpl implements TestService {
         }
     }
 
+    /**
+     * 删除测试
+     * @param id 主键id
+     * @return 影响数据条数
+     */
     @Transactional(rollbackFor = Exception.class)
     @Override
     public boolean removeTestById(Integer id) {
