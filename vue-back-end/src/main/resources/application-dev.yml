@@ -1,5 +1,6 @@
 # server
 server:
+  # 端口和路径部署Tomcat后失效
   port: 8080
   servlet:
     context-path: /vue
@@ -10,4 +11,62 @@ server:
 logging:
   config: classpath:logging-config.xml
 
-
+# Spring
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/vue?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false
+    username: root
+    password: Zp18716331455
+    druid:
+      # 初始化时建立物理连接数
+      initial-size: 2
+      # 最小连接池数量
+      min-idle: 2
+      # 最大连接池数量
+      max-active: 50
+      # 获取连接时最大等待时间，单位毫秒
+      max-wait: 40000
+      # 空闲线程检测时间，单位毫秒
+      time-between-eviction-runs-millis: 30000
+      # 空闲线程销毁时间，单位毫秒
+      min-evictable-idle-time-millis: 30000
+      # 申请连接时，如果空闲时间大于timeBetweenEvictionRunsMillis，执行validationQuery检测连接是否有效
+      test-while-idle: true
+      # 申请连接时会执行validationQuery检测连接是否有效
+      test-on-borrow: false
+      # 归还连接时会执行validationQuery检测连接是否有效
+      test-on-return: false
+      # 用于检测连接是否有效的sql
+      validation-query: select 'x'  #MySql
+      # validation-query: SELECT 1 FROM DUAL  #Oracle
+      # 是否缓存preparedStatement
+      pool-prepared-statements: true
+      # 缓存preparedStatement大小
+      max-pool-prepared-statement-per-connection-size: 20
+      # 合并多个DruidDataSource监控数据
+      use-global-data-source-stat: true
+  jpa:
+    database: MYSQL
+    # 日志显示sql
+    show-sql: true
+    properties:
+      hibernate:
+        # 数据库方言(MySql)
+        dialect: org.hibernate.dialect.MySQL57InnoDBDialect
+        jdbc:
+          # 批处理大小
+          batch_size: 500
+          # 自动版本化数据
+          batch_versioned_data: true
+        # 允许批处理(打乱顺序)
+        order_inserts: true
+        order_updates: true
+  jta:
+    # 不启用分布式事务
+    enabled: false
+  jackson:
+    # 时间格式化
+    date-format: yyyy-MM-dd HH:mm:ss
+    # 东八区北京时间
+    time-zone: GMT+8
