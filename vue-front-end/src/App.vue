@@ -85,8 +85,8 @@ export default {
 
 <style scoped>
   .layout{
-    border: 1px solid #d7dde4;
-    background: #f5f7f9;
+    border: 1px solid #FFFFFF;
+    background: #FFFFFF;
     position: relative;
     border-radius: 4px;
     overflow: hidden;
