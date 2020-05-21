@@ -5,13 +5,13 @@
       <Header class="header-cls">
         <Menu mode="horizontal" active-name="home">
           <div class="layout-nav">
-            <MenuItem name="home">
+            <MenuItem name="home" to="/">
               <Icon type="ios-home"></Icon>
               首页
             </MenuItem>
-            <MenuItem name="settings">
-              <Icon type="ios-settings"></Icon>
-              设置
+            <MenuItem name="msgbox">
+              <Icon type="ios-chatbubbles"></Icon>
+              消息
             </MenuItem>
           </div>
         </Menu>
@@ -29,13 +29,13 @@
           <Layout>
             <!-- 导航侧边栏 -->
             <Sider hide-trigger :style="{background: '#fff'}">
-              <Menu active-name="statistical-income" theme="light" width="auto" :open-names="['statistical']">
+              <Menu active-name="statistical-income" theme="light" width="auto" :open-names="['statistical']" :accordion="true" @on-open-change="" @on-select="">
                 <Submenu name="statistical">
                   <template slot="title">
                     <Icon type="ios-stats"></Icon>
                     统计
                   </template>
-                  <MenuItem name="statistical-income">
+                  <MenuItem name="statistical-income" to="/StatInCome">
                     收入统计
                   </MenuItem>
                   <MenuItem name="statistical-spending">
@@ -58,7 +58,7 @@
             </Sider>
             <!-- 主内容区 -->
             <Content :style="{padding: '24px', minHeight: '280px', background: '#fff'}">
-              主内容区--TODO
+              <router-view/>
             </Content>
           </Layout>
         </Content>
@@ -71,7 +71,15 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  data () {
+    return {
+
+    }
+  },
+  methods:{
+
+  }
 }
 </script>
 
