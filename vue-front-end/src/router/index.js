@@ -13,7 +13,7 @@ export default new Router({
       component: Home
     },
     {
-      path: '/StatInCome',
+      path: '/statincome',
       name: 'StatInCome',
       component: StatInCome
     }

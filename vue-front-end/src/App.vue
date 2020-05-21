@@ -35,7 +35,7 @@
                     <Icon type="ios-stats"></Icon>
                     统计
                   </template>
-                  <MenuItem name="statistical-income" to="/StatInCome">
+                  <MenuItem name="statistical-income" to="/statincome">
                     收入统计
                   </MenuItem>
                   <MenuItem name="statistical-spending">
