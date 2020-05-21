@@ -9,7 +9,7 @@
               <Icon type="ios-home"></Icon>
               首页
             </MenuItem>
-            <MenuItem name="msgbox">
+            <MenuItem name="msgbox" to="/msgbox">
               <Icon type="ios-chatbubbles"></Icon>
               消息
             </MenuItem>
@@ -38,7 +38,7 @@
                   <MenuItem name="statistical-income" to="/statincome">
                     收入统计
                   </MenuItem>
-                  <MenuItem name="statistical-spending">
+                  <MenuItem name="statistical-spending" to="/statspending">
                     支出统计
                   </MenuItem>
                 </Submenu>
@@ -47,10 +47,10 @@
                     <Icon type="ios-settings"></Icon>
                     设置
                   </template>
-                  <MenuItem name="settings-personal">
+                  <MenuItem name="settings-personal" to="/settingpersonal">
                     个人设置
                   </MenuItem>
-                  <MenuItem name="settings-system">
+                  <MenuItem name="settings-system" to="/settingsystem">
                     系统设置
                   </MenuItem>
                 </Submenu>
