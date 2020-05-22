@@ -45,23 +45,19 @@
               },
               {
                   title: 'ID',
-                  key: 'id',
-                  sortable: true
+                  key: 'id'
               },
               {
                   title: '键',
-                  key: 'key',
-                  sortable: true
+                  key: 'key'
               },
               {
                   title: '值',
-                  key: 'value',
-                  sortable: true
+                  key: 'value'
               },
               {
                   title: '描述',
-                  key: 'desc',
-                  sortable: true
+                  key: 'desc'
               }
           ];
 
@@ -86,9 +82,10 @@
                 var deleteList = this.$refs.selection.getSelection();
                 if(deleteList == undefined || deleteList == null || deleteList.length < 1){
                     this.$Message.warning('未选择删除项！！！');
+                }else if(deleteList.length > 1){
+                    this.$Message.warning('不允许批量删除！！！');
                 }else{
-                    //TODO
-                    this.$Message.info('TODO');
+                    this.$Message.info('准备删除ID：' + deleteList.getRangeAt(0));
                 }
             },
             //显示单条数据详情
@@ -96,9 +93,10 @@
                 var detailsList = this.$refs.selection.getSelection();
                 if(detailsList == undefined || detailsList == null || detailsList.length < 1){
                     this.$Message.warning('未选择详情！！！');
+                }else if(detailsList.length > 1){
+                    this.$Message.warning('不允许多选查看详情！！！');
                 }else{
-                    //TODO
-                    this.$Message.info('TODO');
+                    this.$Message.info('准备查看详情ID：' + detailsList.getRangeAt(0));
                 }
             }
         }
