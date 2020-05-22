@@ -9,8 +9,9 @@
           <br />
           <hr />
           <div style="padding: 10px;text-align:right;">
-            <Button @click="details" style="float: right;margin: 10px;" size="default" type="info">详情</Button>
             <Button @click="remove" style="float: right;margin: 10px;" size="default" type="error">删除</Button>
+            <Button @click="details" style="float: right;margin: 10px;" size="default" type="info">详情</Button>
+            <Button @click="queryList" style="float: right;margin: 10px;" size="default" type="success">查询</Button>
           </div>
         </Content>
         <Content :style="{padding: '24px', background: '#fff'}">
@@ -72,33 +73,60 @@
               this.tableData = res.data;
           }.bind(this)).catch(function(err){
               if(err.response) {
+                  this.tableData = [];
                   this.$Message.error(err.response);
               }
           }.bind(this));
         },
         methods:{
-            //删除选中列表数据
-            remove(event){
-                var deleteList = this.$refs.selection.getSelection();
-                if(deleteList == undefined || deleteList == null || deleteList.length < 1){
-                    this.$Message.warning('未选择删除项！！！');
-                }else if(deleteList.length > 1){
-                    this.$Message.warning('不允许批量删除！！！');
-                }else{
-                    this.$Message.info('准备删除ID：' + deleteList.getRangeAt(0));
-                }
-            },
-            //显示单条数据详情
-            details(event){
-                var detailsList = this.$refs.selection.getSelection();
-                if(detailsList == undefined || detailsList == null || detailsList.length < 1){
-                    this.$Message.warning('未选择详情！！！');
-                }else if(detailsList.length > 1){
-                    this.$Message.warning('不允许多选查看详情！！！');
-                }else{
-                    this.$Message.info('准备查看详情ID：' + detailsList.getRangeAt(0));
-                }
+          //查询列表
+          queryList(event){
+            var paramJson = {};
+            if(this.inputKey != undefined && this.inputKey != null && this.inputKey != ''){
+              paramJson["key"] = this.inputKey.trim();
             }
+
+            if(this.inputValue != undefined && this.inputValue != null && this.inputValue != ''){
+              paramJson["value"] = this.inputValue.trim();
+            }
+
+            this.axios.get('http://localhost:8080/vue/test/testPage',{
+              params:{
+                pageNum: 0,
+                pageSize: 10,
+                paramJson: paramJson
+              }
+            }).then(function(res){
+              this.tableData = res.data;
+            }.bind(this)).catch(function(err){
+              if(err.response) {
+                this.tableData = [];
+                this.$Message.error(err.response);
+              }
+            }.bind(this));
+          },
+          //显示单条数据详情
+          details(event){
+            var detailsList = this.$refs.selection.getSelection();
+            if(detailsList == undefined || detailsList == null || detailsList.length < 1){
+              this.$Message.warning('未选择详情！！！');
+            }else if(detailsList.length > 1){
+              this.$Message.warning('不允许多选查看详情！！！');
+            }else{
+              this.$Message.info('准备查看详情ID：' + detailsList[0].id);
+            }
+          },
+          //删除选中列表数据
+          remove(event){
+              var deleteList = this.$refs.selection.getSelection();
+              if(deleteList == undefined || deleteList == null || deleteList.length < 1){
+                  this.$Message.warning('未选择删除项！！！');
+              }else if(deleteList.length > 1){
+                  this.$Message.warning('不允许批量删除！！！');
+              }else{
+                  this.$Message.info('准备删除ID：' + deleteList[0].id);
+              }
+          }
         }
     }
 </script>
