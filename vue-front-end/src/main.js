@@ -4,9 +4,13 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import ViewUI from 'view-design'
+import axios from 'axios'
+import qs from 'qs'
 import 'view-design/dist/styles/iview.css'
 
 Vue.config.productionTip = false
+Vue.prototype.axios = axios
+Vue.prototype.qs = qs
 Vue.use(ViewUI, {
   transfer: true,
   size: 'large',

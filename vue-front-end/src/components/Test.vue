@@ -65,40 +65,40 @@
               }
           ];
 
-          //列表数据
-          this.tableData = [
-              {
-                  id: 1,
-                  key: 'key1',
-                  value: 'value1',
-                  desc: 'key1-value1'
-              },{
-                  id: 2,
-                  key: 'key2',
-                  value: 'value2',
-                  desc: 'key2-value2'
+          //加载列表数据
+          this.axios.get('http://localhost:8080/vue/test/testPage',{
+              params:{
+                  pageNum: 0,
+                  pageSize: 10,
+                  paramJson: ''
               }
-          ];
+          }).then(function(res){
+              this.tableData = res.data;
+          }.bind(this)).catch(function(err){
+              if(err.response) {
+                  this.$Message.error(err.response);
+              }
+          }.bind(this));
         },
         methods:{
             //删除选中列表数据
-            remove(e){
+            remove(event){
                 var deleteList = this.$refs.selection.getSelection();
                 if(deleteList == undefined || deleteList == null || deleteList.length < 1){
                     this.$Message.warning('未选择删除项！！！');
                 }else{
                     //TODO
-                    alert(deleteList.length);
+                    this.$Message.info('TODO');
                 }
             },
             //显示单条数据详情
-            details(e){
+            details(event){
                 var detailsList = this.$refs.selection.getSelection();
                 if(detailsList == undefined || detailsList == null || detailsList.length < 1){
                     this.$Message.warning('未选择详情！！！');
                 }else{
                     //TODO
-                    alert(detailsList.length);
+                    this.$Message.info('TODO');
                 }
             }
         }
