@@ -1,6 +1,6 @@
 <template>
     <div>
-      StatSpending
+      支出统计页面
     </div>
 </template>
 

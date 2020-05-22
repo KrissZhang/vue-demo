@@ -20,9 +20,11 @@
       <Layout :style="{padding: '0 50px'}">
         <!-- 导航面包屑 -->
         <Breadcrumb :style="{margin: '16px 0'}">
+          <!--
           <BreadcrumbItem>首页</BreadcrumbItem>
           <BreadcrumbItem>统计</BreadcrumbItem>
           <BreadcrumbItem>收入统计</BreadcrumbItem>
+          -->
         </Breadcrumb>
         <!-- Content -->
         <Content :style="{padding: '24px 0', minHeight: '280px', background: '#fff'}">
@@ -52,6 +54,9 @@
                   </MenuItem>
                   <MenuItem name="settings-system" to="/settingsystem">
                     系统设置
+                  </MenuItem>
+                  <MenuItem name="test" to="/test">
+                    测试
                   </MenuItem>
                 </Submenu>
               </Menu>

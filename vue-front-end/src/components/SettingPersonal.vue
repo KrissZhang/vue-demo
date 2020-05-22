@@ -1,6 +1,6 @@
 <template>
     <div>
-      SettingPersonal
+      个人设置页面
     </div>
 </template>
 

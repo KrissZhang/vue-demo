@@ -1,6 +1,6 @@
 <template>
     <div>
-      StatInCome
+      收入统计页面
     </div>
 </template>
 

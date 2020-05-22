@@ -4,6 +4,7 @@ import Home from '@/components/Home'
 import MsgBox from '@/components/MsgBox'
 import SettingPersonal from '@/components/SettingPersonal'
 import SettingSystem from '@/components/SettingSystem'
+import Test from '@/components/Test'
 import StatInCome from '@/components/StatInCome'
 import StatSpending from '@/components/StatSpending'
 
@@ -30,6 +31,11 @@ export default new Router({
       path: '/settingsystem',
       name: 'SettingSystem',
       component: SettingSystem
+    },
+    {
+      path: '/test',
+      name: 'Test',
+      component: Test
     },
     {
       path: '/statincome',

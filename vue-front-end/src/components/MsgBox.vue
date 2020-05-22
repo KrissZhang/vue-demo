@@ -1,6 +1,6 @@
 <template>
     <div>
-      MsgBox
+      消息盒子页面
     </div>
 </template>
 
