@@ -31,7 +31,7 @@
           <Layout>
             <!-- 导航侧边栏 -->
             <Sider hide-trigger :style="{background: '#fff'}">
-              <Menu active-name="statistical-income" theme="light" width="auto" :open-names="['statistical']" :accordion="true">
+              <Menu theme="light" width="auto" :open-names="['statistical']" :accordion="true">
                 <Submenu name="statistical">
                   <template slot="title">
                     <Icon type="ios-stats"></Icon>
